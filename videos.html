@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            /* overflow: hidden; */
+        } 
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2C3E50;
+            height: 80px;
+            width: 100%;
+            padding: 0 20px;
+            color: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1abc9c;
+        }
+         .reflect-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #E67E22;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .reflect-button:hover {
+            background-color: #16a085;
+        }
+        footer {
+            background-color: #1a252f;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            width:100%;
+            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: lightblue;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">        
+        <img src="C:\Users\Harshitha\OneDrive\画像\images-website\Screenshot 2024-09-13 210537.png" width="50px" height="50px"/>
+
+        <h1>NAGRIK AUR SAMVIDHAN</h1>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="contactus.html">Contact Us</a>
+        </div>
+    </div>
+    <div class="video-section">
+        <h2>Duties and Responsibility</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/" 
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+                encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                
+        <!-- <p>Learn more about the Constitution through this informative video.</p> -->
+    </div>
+    <h1>Take An Assignment</h1>
+    <form action="assinment.html">
+        <button class="reflect-button" onclick="flipBox()">Assignment</button>
+    </form>
+   
+    
+    <div class="video-section">
+        <h2>Rights of a Citizen</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/" 
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+                encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+               
+        <!-- <p>Learn more about the Constitution through this informative video.</p> -->
+    </div>
+    
+    <h1>Take An Assignment</h1>
+    <form action="assignment2.html">
+        <button class="reflect-button" onclick="flipBox()">Assignment</button>
+    </form>
+    <div class="video-section">
+        <h2>Articles</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/" 
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+                encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                
+        <!-- <p>Learn more about the Constitution through this informative video.</p> -->
+    </div>
+    <h1>Take An Assignment</h1>
+    <form action="assignment3.html">
+        <button class="reflect-button" onclick="flipBox()">Assignment</button>
+    </form>
+   
+</body>
+<footer>
+    <p>&copy; 2024 Constitution Awareness. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+</footer>
+
+</html>
