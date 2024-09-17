@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constitutional Awareness - About Us</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        p, li {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Container for tabs */
+        .tab-container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 50px auto;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Tab header */
+        .tab-links {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: #34495e;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .tab-links div {
+            padding: 14px 20px;
+            font-weight: bold;
+            color: #ecf0f1;
+            cursor: pointer;
+            background-color: #34495e;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-links div:hover, .tab-links .active {
+            background-color: #1abc9c;
+            color: white;
+        }
+        
+
+
+        /* Tab content area */
+        .tab-content {
+            display: none;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding: 8px 0;
+        }
+
+        /* Add a bottom border to separate sections */
+        .tab-content:not(:last-child) {
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        /* Add responsive design */
+        @media (max-width: 768px) {
+            .tab-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-links div {
+                margin-bottom: 10px;
+            }
+        }
+        .n {
+            padding: 10px 20px;
+            
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .n:hover {
+            background-color: #16a085;
+        }
+        /* .n{
+            color:white;
+            margin-top:5px;
+        }
+        .n:hover{
+            background-color: #1abc9c;
+            height:30px;
+            width:100px;
+        } */
+
+    </style>
+</head>
+<body>
+
+    <div class="tab-container">
+
+        <!-- Tab links -->
+        <div class="tab-links">
+            <div class="tab-link active" data-tab="about-us">About Us</div>
+            <div class="tab-link" data-tab="what-we-offer">What We Offer</div>
+            <div class="tab-link" data-tab="our-vision">Our Vision</div>
+            <div class="tab-link" data-tab="join-us">Join Us</div>
+            <a href="index.html" class="n">Home</a>
+        </div>
+
+        <!-- Tab content -->
+        <div id="about-us" class="tab-content active">
+            <h2>About Us</h2>
+            <p>Welcome to Nagarik Aur Samvidhan, your resource for understanding and exploring the Constitution of India. Our mission is to educate, inform, and empower individuals with knowledge of their constitutional rights and responsibilities.</p>
+            <p>We believe that a strong democracy thrives on informed citizens. Our goal is to break down complex legal and constitutional concepts into accessible and engaging content, so that every citizen, regardless of background, can grasp the fundamental principles that govern their nation.</p>
+        </div>
+
+        <div id="what-we-offer" class="tab-content">
+            <h2>What We Offer</h2>
+            <ul>
+                <li><strong>Educational Articles:</strong> Clear, concise explanations of key constitutional provisions, rights, and amendments.</li>
+                <li><strong>Case Studies:</strong> Real-life examples of how constitutional laws have shaped and resolved important legal issues.</li>
+                <li><strong>Interactive Tools:</strong> Quizzes, videos, and infographics to enhance learning and engagement with the Constitution.</li>
+                <li><strong>Current Affairs:</strong> Updates on constitutional debates, amendments, and landmark judgments shaping our legal landscape today.</li>
+            </ul>
+        </div>
+
+        <div id="our-vision" class="tab-content">
+            <h2>Our Vision</h2>
+            <p>We envision a society where every citizen understands their rights and responsibilities, and actively participates in the democratic process. By spreading constitutional literacy, we aim to create a more just, equal, and informed society.</p>
+        </div>
+
+        <div id="join-us" class="tab-content">
+            <h2>Join Us</h2>
+            <p>Explore, learn, and engage with us as we bring the Constitution to life. Together, we can build a nation where every voice is heard, every right is respected, and every responsibility is honored.</p>
+        </div>
+
+    </div>
+
+    <script>
+        // Get all the tab links and content
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        // Function to handle tab switching
+        tabLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Remove active class from all tab links and contents
+                tabLinks.forEach(link => link.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to the clicked tab and its content
+                link.classList.add('active');
+                document.getElementById(link.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
