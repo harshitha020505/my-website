@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivicSense1</title>
+    <style>
+        body {
+            margin: 20;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: 'Times New Roman';
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2C3E50;
+            padding: 20px;
+            color: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #ecf0f1;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: lightblue;
+        }
+
+        .class2 {
+            padding: 10px 20px;
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .class2:hover {
+            background-color: #16a085;
+        }
+
+        .class3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .class4 {
+            background-color: lightcoral;
+            padding: 15px 25px;
+            text-align: center;
+            max-width: 600px;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .mimg {
+            display: flex;
+            justify-content: left;
+            height: 400px;
+            width: 600px;
+            margin-left: 20px;
+            margin-right: 20px;
+            flex: 2;
+        }
+
+        .mimg img {
+            width: 700px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .thinking-img {
+            flex: 1;
+            max-width: 150px;
+            margin-right: 200px;
+            margin-bottom: 180px;
+            margin-top: 100px;
+        }
+
+        .thinking-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .flip-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .flip-box {
+            width: 600px;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        
+        
+        
+
+        .flip-box.flip {
+            transform: rotateY(180deg);
+        }
+
+        .flip-box-front, .flip-box-back {
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        .flip-box-front {
+            background-color: honeydew;
+            
+        }
+
+        .flip-box-back {
+            display:flex;
+            background-color: lightblue;
+            color: black;
+            margin-left: 30px;
+            justify-content: center;
+
+            justify-content: space-between;
+            transform: rotateY(180deg);
+        }
+
+
+        .hea {
+            color: black;
+            margin-top: 20px;
+            margin-left:10px;
+            margin-right: 30px;
+            font-size: 40px;
+        }
+
+        .newclass {
+            color: black;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+            top: 70px;
+            right: 20px;
+        }
+
+        .dropdown a {
+            text-decoration: none;
+            display: block;
+            color: black;
+            margin: 8px 0;
+        }
+
+        .login-button {
+            background-color: #E67E22;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            position: relative;
+        }
+
+        ul {
+            align-items: space-between;
+        }
+
+        .anc {
+            color: white;
+            margin-left: 450px;
+        }
+
+        .thinking-text {
+            color: white;
+            margin-top: 20px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .reflect-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #E67E22;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .reflect-button:hover {
+            background-color: #16a085;
+        }
+
+        .text-below {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #ecf0f1;
+            width: 100%;
+            text-align: center;
+        }
+        .c{
+            margin-left:20px;
+        }
+        .class5 {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+
+        .class5 img {
+            height: 200px;
+            width: 30%;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .class5 img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Added styles for the new sections */
+        .information-section, .entertainment-section, .video-section, .learning-entertainment {
+            padding: 20px;
+            background-color: #e8e8e8;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .information-section h2,
+        .entertainment-section h2,
+        .video-section h2,
+        .learning-entertainment h2 {
+            color: #2c3e50;
+        }
+        .class5 {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+
+.class5 img {
+    height: 200px;
+    width: 30%;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.class5 img:hover {
+    transform: scale(1.05);
+}
+footer {
+            background-color: #1a252f;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: lightblue;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="C:\Users\Harshitha\OneDrive\画像\Screenshots\Screenshot 2024-09-13 210537.png" width="50px" height="50px"/>
+        <h1>NAGRIK AUR SAMVIDHAN</h1>
+        <div class="nav-links">
+            <a href="index.html" class="anc">Home</a>
+            <a href="aboutus.html" class="anc2">About Us</a>
+            <a href="contactus.html" class="anc1">Contact Us</a>
+        </div>
+        <button class="login-button" onclick="toggleDropdown()">Login</button>
+        <div class="dropdown" id="loginOptions">
+            <a href="ulogin.html" onclick="userLogin()">User Login</a>
+            <a href="login.html" onclick="adminLogin()">Admin Login</a>
+        </div>
+    </div>
+
+    <div class="class3">
+        <h2 class="class4">"Constitution morality is not a natural sentiment. It has to be cultivated."</h2>
+    </div>
+
+    <div class="flip-container">
+        
+        <div class="flip-box">
+            <div class="flip-box-front">
+                <div class="mimg">
+                    <img src="C:\Users\Harshitha\OneDrive\画像\Screenshots\law.jpg" alt="Main Image" />
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="flip-box" id="flipBox">
+            <div class="flip-box-front">
+                <div class="thinking-img">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.M37W1-ADvgQMG3tf1503MQHaJh&pid=Api&P=0&h=220" alt="Thinking Image" />
+
+                    <p class="thinking-text" style="color: black;">Did You Know?</p>
+                    <button class="reflect-button" onclick="flipBox()">Click To Know</button>
+                </div>
+            </div>
+            <div class="flip-box-back">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.kWDUjOGcODsEvml0P9u4dAHaMn&pid=Api&P=0&h=220" class="c" alt="idea"/>
+                <h2 class="hea">Interesting Fact!</h2>
+                <div>
+                    <p class="newclass">The Constitution of India is the longest written constitution of any sovereign country in the world, containing 448 articles in 25 parts, 12 schedules, and 104 amendments.</p>
+                    <button class="reflect-button" onclick="flipBox()">Go Back</button>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="text-below">
+        <p>The Constitution of India is the supreme law of India. It lays down the framework that defines the fundamental political principles, establishes the structure, procedures, powers, and duties of government institutions, and sets out fundamental rights, directive principles, and the duties of citizens.</p>
+        <a href="quiz.html" class="class2">Take Quiz</a>
+    </div> -->
+
+    <!-- New sections for information, entertainment, and videos -->
+
+    <div class="information-section">
+        <h2>Explore More on Constitutional Awareness</h2>
+        <ul>
+            <li><a href="document1.html" >Our Preamble</a></li>
+            <li><a href="document2.html" >Judiciary</a></li>
+            <li><a href="document3.html" >Amendments</a></li>
+        </ul>
+    </div>
+
+   
+
+    <div class="video-section">
+        <h2>Inside our Legal Hub...</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/kkkkkk" 
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+                encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Learn more about the Constitution through this informative video.</p>
+    </div>
+
+    <!-- <div class="learning-entertainment">
+        <h2>What You Can Learn From This</h2>
+        <video width="600" controls>
+            <source src="https://youtu.be/sDstf8ockUo?si=uTTIYnkq5d1w7mGH" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>After watching the video, reflec -->
+            <div class="learning-entertainment">
+                <h2>Legal services at a glance</h2>
+                <iframe width="600" height="315" 
+                    src="https://www.youtube.com/embed/kkkk" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            
+        </div>
+        <p>After watching the video reflect on the following:</p>
+        <ul>
+            <li>What did you find most surprising about the Constitution?</li>
+            <li>How can you apply what you learned to your daily life?</li>
+            <li>Share your thoughts in our discussion forum.</li>
+        </ul>
+    </div>
+    <div class="class5">
+        <img src="https://tse4.mm.bing.net/th?id=OIP.RjzVhY_HwlvoIV_H-7EzUgAAAA&pid=Api&P=0&h=220" alt="Image 1"/>
+        <img src="https://tse2.mm.bing.net/th?id=OIP.1QcvPFqP9--P__iSNbvZngHaEK&pid=Api&P=0&h=220" alt="Image 2"/>
+        <img src="https://tse3.mm.bing.net/th?id=OIP.KR33866SA8Dv8S4vZa_c1wHaEK&pid=Api&P=0&h=220" alt="Image 3"/>
+    </div>
+    <div class="class5">
+        <img src="https://tse4.mm.bing.net/th?id=OIP.koUTt-dwBSqxpBj-AI4n9AHaEK&pid=Api&P=0&h=220" alt="Image 4"/>
+        <img src="https://media.gettyimages.com/id/108914576/photo/a-protestor-holding-a-placard-in-front-of-the-us-capitol-building.jpg?s=612x612&w=0&k=20&c=KR5j6f9HY0mMfTsESh65ajn2mQ_ACDr6Fsv1xp7y_Jg=" alt="Image 5"/>
+        <img src="https://tse1.mm.bing.net/th?id=OIP.IzBRZDyguwitWlti27YEgAHaE1&pid=Api&P=0&h=220" alt="Image 6"/>
+    </div>
+    <footer>
+        <p>&copy; 2024 Constitution Awareness. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        function flipBox() {
+            var flipBox = document.getElementById('flipBox');
+            flipBox.classList.toggle('flip');
+        }
+
+        function toggleDropdown() {
+            var dropdown = document.getElementById('loginOptions');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function userLogin() {
+            alert("User Login Selected");
+        }
+
+        function adminLogin() {
+            alert("Admin Login Selected");
+        }
+    </script>
+</body>
+</html>

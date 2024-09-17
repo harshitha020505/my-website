@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constitutional Awareness - About Us</title>
+    <style>
+        /* General Styles */
+        html, body {
+            height: 100%;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1a252f;
+            height: 60px;
+            padding: 0 20px;
+            color: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3498db;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        p, li {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Vertical Tab Links */
+        .tab-container {
+            display: flex; /* Flexbox for vertical tabs and content side by side */
+            width: 100%;
+            margin: 50px auto;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            height: 100%;
+        }
+
+        .tab-links {
+            display: flex;
+            flex-direction: column; /* Vertical layout */
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 20px;
+            background-color: #34495e;
+            border-radius: 8px 0 0 8px;
+            width: 200px; /* Fixed width for vertical tabs */
+        }
+
+        .tab-links div {
+            padding: 14px 20px;
+            font-weight: bold;
+            color: #ecf0f1;
+            cursor: pointer;
+            background-color: #34495e;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            width: 100%; /* Full width for tabs */
+            text-align: left;
+        }
+
+        .tab-links div:hover, .tab-links .active {
+            background-color: #1abc9c;
+            color: white;
+        }
+
+        /* Tab content area */
+        .tab-content {
+            display: none;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 0 8px 8px 0;
+            flex-grow: 1; /* Tab content takes up remaining space */
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding: 8px 0;
+        }
+
+        /* Add a bottom border to separate sections */
+        .tab-content:not(:last-child) {
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        /* Add responsive design */
+        @media (max-width: 768px) {
+            .tab-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-links div {
+                margin-bottom: 10px;
+            }
+        }
+
+        .n {
+            padding: 10px 20px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .n:hover {
+            background-color: #16a085;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="C:\Users\Harshitha\OneDrive\画像\Screenshots\Screenshot 2024-09-13 210537.png" width="50px" height="50px"/>
+        <h1>NAGRIK AUR SAMVIDHAN</h1>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="contactus.html">Contact Us</a>
+        </div>
+    </div>
+
+    <div class="tab-container">
+        <!-- Tab links -->
+        <div class="tab-links">
+            <div class="tab-link active" data-tab="category1">Foundations of the Constitution</div>
+            <div class="tab-link" data-tab="category2">structure of the constitution</div>
+            <div class="tab-link" data-tab="category3">Key Articles and ammendments</div>
+            <div class="tab-link" data-tab="category4">Branches of government</div>
+        </div>
+
+        <!-- Tab content -->
+        <div id="category1" class="tab-content active">
+            <h2>Foundations Of the Constitution</h2>
+            <p>Content for category 1</p>
+        </div>
+
+        <div id="category2" class="tab-content">
+            <h2>Structure Of The Constitution</h2>
+            <p>Content for category 2 </p>
+        </div>
+
+        <div id="category3" class="tab-content">
+            <h2>Key Articles And Ammendments</h2>
+            <p>Content for category3</p>
+        </div>
+
+        <div id="category4" class="tab-content">
+            <h2>Branches of Government</h2>
+            <p>Content for category4</p>
+        </div>
+    </div>
+
+    <script>
+        // Get all the tab links and content
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        // Function to handle tab switching
+        tabLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Remove active class from all tab links and contents
+                tabLinks.forEach(link => link.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to the clicked tab and its content
+                link.classList.add('active');
+                const tabId = link.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
