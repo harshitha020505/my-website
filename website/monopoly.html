@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constitutional Monopoly</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #board {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 2px;
+            margin: 20px auto;
+            width: 600px;
+        }
+        .square {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        #status {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Constitutional Monopoly</h1>
+    <div id="board">
+        <!-- Squares will be dynamically generated here -->
+    </div>
+    <div id="status">
+        <p id="player-info"></p>
+        <button onclick="playTurn()">Play Turn</button>
+    </div>
+    <script>
+        const properties = [
+    "First Amendment", "Second Amendment", "Third Amendment", "Fourth Amendment",
+    "Fifth Amendment", "Sixth Amendment", "Seventh Amendment", "Eighth Amendment",
+    "Ninth Amendment", "Tenth Amendment", "Eleventh Amendment", "Twelfth Amendment",
+    "Thirteenth Amendment", "Fourteenth Amendment", "Fifteenth Amendment", "Sixteenth Amendment",
+    "Seventeenth Amendment", "Eighteenth Amendment", "Nineteenth Amendment", "Twentieth Amendment"
+];
+
+let playerMoney = [1500, 1500];
+let playerPositions = [0, 0];
+let playerProperties = [[], []];
+let turn = 0;
+
+function initBoard() {
+    const board = document.getElementById('board');
+    properties.forEach((property, index) => {
+        const square = document.createElement('div');
+        square.classList.add('square');
+        square.id = `square-${index}`;
+        square.innerText = property;
+        board.appendChild(square);
+    });
+}
+
+function updateStatus() {
+    const playerInfo = document.getElementById('player-info');
+    playerInfo.innerText = `Player 1: $${playerMoney[0]}, Position: ${properties[playerPositions[0]]}\n` +
+                            `Player 2: $${playerMoney[1]}, Position: ${properties[playerPositions[1]]}`;
+}
+
+function rollDice() {
+    return Math.floor(Math.random() * 6) + 1 + Math.floor(Math.random() * 6) + 1;
+}
+
+function movePlayer(player) {
+    const roll = rollDice();
+    playerPositions[player] = (playerPositions[player] + roll) % properties.length;
+    document.getElementById(`square-${playerPositions[player]}`).style.backgroundColor = 'lightgreen';
+}
+
+function buyProperty(player) {
+    const property = properties[playerPositions[player]];
+    const cost = 100;
+    if (!playerProperties[player].includes(property) && playerMoney[player] >= cost) {
+        playerMoney[player] -= cost;
+        playerProperties[player].push(property);
+        document.getElementById(`square-${playerPositions[player]}`).innerText += `\nBought for $${cost}`;
+    }
+}
+
+function playTurn() {
+    movePlayer(turn);
+    buyProperty(turn);
+    updateStatus();
+    turn = (turn + 1) % 2;
+}
+
+window.onload = () => {
+    initBoard();
+    updateStatus();
+};
+
+    </script>
+</body>
+</html>
